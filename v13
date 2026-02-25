@@ -1152,3 +1152,5 @@ st.markdown("""
     Any issues with the app? Contact <strong style="color: #8b95a5;">Sandesh Shetty</strong>
 </div>
 """, unsafe_allow_html=True)
+
+https://colesgroup.atlassian.net/
