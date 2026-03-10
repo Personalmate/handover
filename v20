@@ -10,7 +10,6 @@ st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 * { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
 
-/* ===== GLOBAL DARK THEME OVERRIDE ===== */
 html, body, [data-testid="stApp"], [data-testid="stAppViewContainer"],
 [data-testid="stHeader"], [data-testid="stMain"],
 [data-testid="stMainBlockContainer"], [data-testid="stVerticalBlock"],
@@ -21,7 +20,6 @@ section[data-testid="stSidebar"], [data-testid="stSidebarContent"] {
 }
 [data-testid="stSidebar"] { background-color: #161b22 !important; }
 
-/* ===== ALL TEXT ELEMENTS ===== */
 p, span, label, div, li, ul, ol, h1, h2, h3, h4, h5, h6, a,
 strong, em, b, i, small, td, th, caption, figcaption,
 [data-testid="stMarkdown"], [data-testid="stMarkdown"] p,
@@ -34,7 +32,6 @@ strong, em, b, i, small, td, th, caption, figcaption,
     color: #fafafa !important;
 }
 
-/* ===== FORM LABELS ===== */
 [data-testid="stTextInput"] label,
 [data-testid="stTextInput"] label p,
 [data-testid="stTextInput"] label span,
@@ -44,34 +41,15 @@ strong, em, b, i, small, td, th, caption, figcaption,
 [data-testid="stSelectbox"] label,
 [data-testid="stSelectbox"] label p,
 [data-testid="stSelectbox"] label span,
-[data-testid="stMultiSelect"] label,
-[data-testid="stMultiSelect"] label p,
-[data-testid="stMultiSelect"] label span,
-[data-testid="stNumberInput"] label,
-[data-testid="stNumberInput"] label p,
-[data-testid="stNumberInput"] label span,
 [data-testid="stDateInput"] label,
 [data-testid="stDateInput"] label p,
 [data-testid="stDateInput"] label span,
-[data-testid="stCheckbox"] label,
-[data-testid="stCheckbox"] label p,
-[data-testid="stCheckbox"] label span,
-[data-testid="stRadio"] label,
-[data-testid="stRadio"] label p,
-[data-testid="stRadio"] label span,
-[data-testid="stSlider"] label,
-[data-testid="stSlider"] label p,
-[data-testid="stSlider"] label span,
-[data-testid="stFileUploader"] label,
-[data-testid="stFileUploader"] label p,
-[data-testid="stFileUploader"] label span,
 .stTextInput label, .stTextArea label, .stSelectbox label,
 [data-testid="stWidgetLabel"], [data-testid="stWidgetLabel"] p,
 [data-testid="stWidgetLabel"] span {
     color: #fafafa !important;
 }
 
-/* ===== INPUT FIELDS ===== */
 [data-testid="stSelectbox"] > div > div,
 [data-baseweb="select"] > div,
 textarea, input,
@@ -79,37 +57,37 @@ textarea, input,
 [data-testid="stTextArea"] > div,
 [data-testid="stTextInput"] > div > div,
 [data-testid="stTextInput"] input,
-[data-testid="stNumberInput"] input,
 [data-testid="stDateInput"] input {
-    background-color: #1c2030 !important; color: #fafafa !important; border-color: #3a3f52 !important;
+    background-color: #1c2030 !important;
+    color: #fafafa !important;
+    border-color: #3a3f52 !important;
     border-radius: 6px !important;
 }
 input::placeholder, textarea::placeholder { color: #6b7280 !important; }
-input:focus, textarea:focus { border-color: #3b82f6 !important; box-shadow: 0 0 0 1px #3b82f6 !important; }
+input:focus, textarea:focus {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 1px #3b82f6 !important;
+}
 input:disabled, textarea:disabled,
 [data-testid="stTextInput"] input:disabled {
-    background-color: #12151c !important; color: #8b95a5 !important;
-    border-color: #2a3040 !important; -webkit-text-fill-color: #8b95a5 !important;
+    background-color: #12151c !important;
+    color: #8b95a5 !important;
+    border-color: #2a3040 !important;
+    -webkit-text-fill-color: #8b95a5 !important;
 }
 
-/* ===== DROPDOWNS ===== */
 [data-baseweb="popover"], [data-baseweb="popover"] > div,
 [data-baseweb="menu"], [data-baseweb="menu"] li,
 ul[role="listbox"], ul[role="listbox"] li,
 [data-baseweb="select"] [data-baseweb="popover"],
 [role="option"] {
-    background-color: #1c2030 !important; color: #fafafa !important;
+    background-color: #1c2030 !important;
+    color: #fafafa !important;
 }
 [data-baseweb="menu"] li:hover, ul[role="listbox"] li:hover,
 [role="option"]:hover { background-color: #2a3040 !important; }
 [data-baseweb="select"] svg { fill: #fafafa !important; }
-[data-baseweb="select"] [data-testid="stMarkdown"],
-[data-baseweb="select"] span,
-[data-baseweb="select"] div[class*="value"] {
-    color: #fafafa !important;
-}
 
-/* ===== TABS ===== */
 [data-testid="stTabs"] button {
     background-color: transparent !important;
     color: #8b95a5 !important;
@@ -129,22 +107,6 @@ ul[role="listbox"], ul[role="listbox"] li,
 }
 [data-testid="stTabs"] { margin-top: -40px !important; }
 
-/* ===== MODAL ===== */
-[data-testid="stModal"] { background-color: rgba(0,0,0,0.85) !important; }
-[data-testid="stModal"] > div, [data-testid="stModal"] > div > div,
-[role="dialog"], [role="dialog"] > div {
-    background-color: #161b22 !important;
-    color: #fafafa !important;
-    border-radius: 12px !important;
-}
-[data-testid="stModal"] p, [data-testid="stModal"] span, [data-testid="stModal"] label,
-[data-testid="stModal"] div, [data-testid="stModal"] li, [data-testid="stModal"] strong,
-[role="dialog"] p, [role="dialog"] span, [role="dialog"] label,
-[role="dialog"] div, [role="dialog"] li, [role="dialog"] strong {
-    color: #fafafa !important;
-}
-
-/* ===== BUTTONS ===== */
 button {
     background-color: #1c2030 !important;
     color: #fafafa !important;
@@ -161,16 +123,6 @@ button:hover { background-color: #2a3040 !important; border-color: #4a5068 !impo
 [data-testid="baseButton-primary"]:hover {
     background: linear-gradient(135deg, #f85149, #da3633) !important;
 }
-[data-testid="stModal"] [data-testid="baseButton-primary"],
-[role="dialog"] [data-testid="baseButton-primary"] {
-    background: linear-gradient(135deg, #3b82f6, #2563eb) !important;
-    color: #ffffff !important;
-    border: none !important;
-}
-[data-testid="stModal"] [data-testid="baseButton-primary"]:hover,
-[role="dialog"] [data-testid="baseButton-primary"]:hover {
-    background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
-}
 [data-testid="stForm"] [data-testid="baseButton-primary"],
 [data-testid="stForm"] [data-testid="stFormSubmitButton"] button {
     background: linear-gradient(135deg, #238636, #1a7f37) !important;
@@ -184,13 +136,7 @@ button:hover { background-color: #2a3040 !important; border-color: #4a5068 !impo
 [data-testid="stForm"] [data-testid="stFormSubmitButton"] button:hover {
     background: linear-gradient(135deg, #2ea043, #238636) !important;
 }
-[data-testid="stDownloadButton"] button {
-    background-color: #1c2030 !important;
-    color: #fafafa !important;
-}
-[data-testid="stDownloadButton"] button:hover { background-color: #2a3040 !important; }
 
-/* ===== EXPANDER ===== */
 [data-testid="stExpander"] {
     background-color: #161b22 !important;
     border: 1px solid #2a3040 !important;
@@ -198,130 +144,75 @@ button:hover { background-color: #2a3040 !important; border-color: #4a5068 !impo
     margin-bottom: 8px !important;
 }
 [data-testid="stExpander"] summary { color: #fafafa !important; }
-[data-testid="stExpander"] summary:hover { color: #3b82f6 !important; }
-[data-testid="stExpander"] > div, [data-testid="stExpander"] details,
-[data-testid="stExpander"] details > div,
-[data-testid="stExpander"] [data-testid="stVerticalBlock"],
-[data-testid="stExpander"] [data-testid="stHorizontalBlock"] {
-    background-color: #161b22 !important; color: #fafafa !important;
-}
-[data-testid="stExpander"] p, [data-testid="stExpander"] span,
-[data-testid="stExpander"] label, [data-testid="stExpander"] strong,
-[data-testid="stExpander"] li, [data-testid="stExpander"] div {
-    color: #fafafa !important;
-}
 
-/* ===== DATAFRAME / TABLE ===== */
-[data-testid="stDataFrame"] { border-radius: 8px !important; overflow: hidden !important; }
-[data-testid="stDataFrame"] > div,
-[data-testid="stDataFrame"] [class*="glide"],
-[data-testid="stDataFrame"] [class*="dvn"],
-[data-testid="stDataFrame"] table {
-    background-color: #161b22 !important; color: #fafafa !important;
-}
-[data-testid="stDataFrame"] > div {
-    --gdg-bg-cell: #161b22 !important;
-    --gdg-bg-cell-medium: #161b22 !important;
-    --gdg-bg-header: #1c2030 !important;
-    --gdg-bg-header-has-focus: #1c2030 !important;
-    --gdg-bg-header-hovered: #2a3040 !important;
-    --gdg-text-dark: #fafafa !important;
-    --gdg-text-medium: #c0c8d4 !important;
-    --gdg-text-light: #8b95a5 !important;
-    --gdg-text-header: #8b95a5 !important;
-    --gdg-text-header-selected: #fafafa !important;
-    --gdg-text-group-header: #8b95a5 !important;
-    --gdg-text-bubble: #fafafa !important;
-    --gdg-bg-bubble: #2a3040 !important;
-    --gdg-bg-bubble-selected: #3b82f6 !important;
-    --gdg-border-color: #2a3040 !important;
-    --gdg-horizontal-border-color: #2a3040 !important;
-    --gdg-drilldown-border: #2a3040 !important;
-    --gdg-link-color: #3b82f6 !important;
-    --gdg-cell-horizontal-padding: 10px !important;
-    --gdg-cell-vertical-padding: 4px !important;
-    --gdg-bg-search-result: #1a3a5c !important;
-    --gdg-accent-color: #3b82f6 !important;
-    --gdg-accent-fg: #ffffff !important;
-    --gdg-accent-light: rgba(59,130,246,0.15) !important;
-    --gdg-bg-icon-header: #8b95a5 !important;
-    --gdg-fg-icon-header: #161b22 !important;
-}
-[data-testid="stDataFrame"] canvas + div,
-[data-testid="stDataFrame"] [class*="cell"],
-[data-testid="stDataFrame"] [role="grid"],
-[data-testid="stDataFrame"] [role="gridcell"],
-[data-testid="stDataFrame"] [role="columnheader"],
-[data-testid="stDataFrame"] [role="row"] {
-    background-color: #161b22 !important; color: #fafafa !important;
-}
-[data-testid="stDataFrame"] [data-testid="stElementToolbar"],
-[data-testid="stDataFrame"] [data-testid="stElementToolbar"] button {
-    background-color: #1c2030 !important; color: #fafafa !important;
-}
-
-/* ===== FORM CONTAINER ===== */
 [data-testid="stForm"] {
-    background-color: #0e1117 !important; border-color: #2a3040 !important;
-}
-[data-testid="stForm"] > div {
     background-color: #0e1117 !important;
-}
-
-/* ===== ALERTS ===== */
-[data-testid="stAlert"], [role="alert"] {
-    background-color: #161b22 !important;
-    color: #fafafa !important;
     border-color: #2a3040 !important;
 }
-[data-testid="stAlert"] p, [data-testid="stAlert"] span,
-[role="alert"] p, [role="alert"] span {
-    color: #fafafa !important;
-}
+[data-testid="stForm"] > div { background-color: #0e1117 !important; }
 
-/* ===== HORIZONTAL RULE ===== */
-hr, [data-testid="stMarkdown"] hr {
-    border-color: #2a3040 !important; background-color: #2a3040 !important;
-}
-
-/* ===== COLUMNS ===== */
-[data-testid="stColumn"], [data-testid="stColumn"] > div {
-    background-color: transparent !important;
-}
-
-/* ===== TOOLTIP ===== */
-[data-testid="stTooltipIcon"] svg { fill: #8b95a5 !important; }
-
-/* ===== CUSTOM CLASSES ===== */
 .header-container {
     background: linear-gradient(135deg, #0f2744 0%, #1a3a5c 50%, #1e4976 100%);
-    border-radius: 12px; padding: 20px 24px; margin-bottom: 20px; text-align: center;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    text-align: center;
     border: 1px solid #1e3a5f;
 }
-.header-title { font-size: 26px !important; font-weight: 700; color: white; margin: 0; letter-spacing: -0.3px; }
+.header-title {
+    font-size: 26px !important;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    letter-spacing: -0.3px;
+}
 
 .info-box {
-    background: #161b22; border: 1px solid #f39c12; border-left: 4px solid #f39c12;
-    border-radius: 8px; padding: 10px 18px; margin-bottom: 12px; font-size: 12px; color: #d0d7de;
+    background: #161b22;
+    border: 1px solid #f39c12;
+    border-left: 4px solid #f39c12;
+    border-radius: 8px;
+    padding: 10px 18px;
+    margin-bottom: 12px;
+    font-size: 12px;
+    color: #d0d7de;
 }
-.info-box h4 { color: #f39c12 !important; margin: 0 0 8px 0; font-size: 14px; font-weight: 600; }
+.info-box h4 {
+    color: #f39c12 !important;
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: 600;
+}
 .info-box ul { margin: 0; padding-left: 18px; }
 .info-box li { margin-bottom: 1px; color: #d0d7de !important; }
 .info-box strong { color: #e6edf3 !important; }
 
 .success-box {
-    background: #0d2818; border: 1px solid #238636; border-left: 4px solid #238636;
-    border-radius: 8px; padding: 14px 18px; font-size: 13px; color: #7ee787;
+    background: #0d2818;
+    border: 1px solid #238636;
+    border-left: 4px solid #238636;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: #7ee787;
 }
 
 .metric-card {
-    background: #161b22; border: 1px solid #2a3040; border-radius: 10px;
-    padding: 16px 20px; text-align: center; border-left: 3px solid #3b82f6;
+    background: #161b22;
+    border: 1px solid #2a3040;
+    border-radius: 10px;
+    padding: 16px 20px;
+    text-align: center;
+    border-left: 3px solid #3b82f6;
 }
 .metric-value { font-size: 28px; font-weight: 700; color: #3b82f6 !important; margin: 0; }
 .metric-label {
-    font-size: 11px; color: #8b95a5 !important; margin: 6px 0 0 0;
-    text-transform: uppercase; letter-spacing: 0.8px; font-weight: 500;
+    font-size: 11px;
+    color: #8b95a5 !important;
+    margin: 6px 0 0 0;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 500;
 }
 .mc-blue { border-left-color: #3b82f6; }
 .mc-blue .metric-value { color: #3b82f6 !important; }
@@ -339,51 +230,49 @@ hr, [data-testid="stMarkdown"] hr {
 .mc-orange .metric-value { color: #f97316 !important; }
 
 .section-label {
-    font-size: 11px; font-weight: 600; color: #3b82f6 !important; text-transform: uppercase;
-    letter-spacing: 1px; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #2a3040;
+    font-size: 11px;
+    font-weight: 600;
+    color: #3b82f6 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #2a3040;
 }
 
 .error-msg { color: #f85149 !important; font-size: 13px; margin-top: 4px; padding: 2px 0; }
 .error-msg strong { color: #f85149 !important; }
 
 .main .block-container { padding-top: 1rem; padding-bottom: 1rem; max-width: 100%; }
-
 .page-info { color: #8b95a5 !important; font-size: 13px; text-align: center; padding: 8px 0; }
 
-.history-table {
-    width: 100%; border-collapse: collapse; font-size: 13px; color: #e6edf3;
+.history-table, .dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    color: #e6edf3;
 }
-.history-table th {
-    background: #1c2030 !important; color: #8b95a5 !important; font-weight: 600; text-transform: uppercase;
-    font-size: 11px; letter-spacing: 0.5px; padding: 10px 14px; border-bottom: 1px solid #2a3040;
-    text-align: left; position: sticky; top: 0; z-index: 1;
-}
-.history-table td {
-    padding: 8px 14px; border-bottom: 1px solid #1c2030; color: #e6edf3 !important;
-    white-space: nowrap;
-}
-.history-table tr { background-color: #161b22 !important; }
-.history-table tr:hover { background: #1c2030 !important; }
-
-.dashboard-table {
-    width: 100%; border-collapse: collapse; font-size: 13px; color: #e6edf3;
-    table-layout: fixed;
-}
-.dashboard-table th:first-child { width: 70%; }
-.dashboard-table th:last-child { width: 30%; }
-.dashboard-table th {
-    background: #1c2030 !important; color: #8b95a5 !important; font-weight: 600; text-transform: uppercase;
-    font-size: 11px; letter-spacing: 0.5px; padding: 10px 14px; border-bottom: 1px solid #2a3040;
+.history-table th, .dashboard-table th {
+    background: #1c2030 !important;
+    color: #8b95a5 !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    padding: 10px 14px;
+    border-bottom: 1px solid #2a3040;
     text-align: left;
 }
-.dashboard-table th:last-child { text-align: center; }
-.dashboard-table td {
-    padding: 8px 14px; border-bottom: 1px solid #1c2030; color: #e6edf3 !important;
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+.history-table td, .dashboard-table td {
+    padding: 8px 14px;
+    border-bottom: 1px solid #1c2030;
+    color: #e6edf3 !important;
 }
-.dashboard-table td:last-child { text-align: center; font-weight: 600; color: #3b82f6 !important; }
-.dashboard-table tr:hover { background: #1c2030 !important; }
-.dashboard-table tr { background-color: #161b22 !important; }
+.dashboard-table td:last-child {
+    text-align: center;
+    font-weight: 600;
+    color: #3b82f6 !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -406,7 +295,7 @@ try:
     current_role = session.sql("SELECT CURRENT_ROLE()").to_pandas().iloc[0, 0]
 except Exception:
     current_role = ""
-is_admin = (str(current_role).upper() == ADMIN_ROLE)
+is_admin = str(current_role).upper() == ADMIN_ROLE
 
 TABLE = "DB_CORE_PRD.PMD.INSIGHTS_CORE_INGESTION"
 
@@ -426,15 +315,6 @@ FIELD_COLUMNS = [
     "SOURCE_SERVICE_NOW_GROUP", "ENGINEER_EMAIL_ID", "HLD", "IFM", "COMMENTS",
     "ENCRYPTED", "EXPIRATION_DATE"
 ]
-
-
-def clean_input(text):
-    if not text:
-        return ""
-    text = text.strip()
-    text = re.sub(r' +', ' ', text)
-    return text
-
 
 FIELD_LABELS = {
     "SOURCE_SYSTEM": "Source System",
@@ -472,6 +352,14 @@ FORM_FIELD_DEFAULTS = {
     "new_hld": "", "new_ifm": "", "new_comments": "",
     "new_encrypted": "-- Select --", "new_expiration_date": None,
 }
+
+
+def clean_input(text):
+    if not text:
+        return ""
+    text = text.strip()
+    text = re.sub(r" +", " ", text)
+    return text
 
 
 def validate_form(data):
@@ -541,11 +429,11 @@ def get_total_count(search_term="", filter_source="All", filter_priority="All", 
         search_conditions = " OR ".join([f"TO_VARCHAR({col}) ILIKE '%{safe_search}%'" for col in FIELD_COLUMNS])
         where += f" AND ({search_conditions})"
     if filter_source != "All":
-        where += f" AND SOURCE_SYSTEM = '{filter_source.replace(chr(39), chr(39)+chr(39))}'"
+        where += f" AND SOURCE_SYSTEM = '{filter_source.replace(chr(39), chr(39) + chr(39))}'"
     if filter_priority != "All":
-        where += f" AND PRIORITY = '{filter_priority.replace(chr(39), chr(39)+chr(39))}'"
+        where += f" AND PRIORITY = '{filter_priority.replace(chr(39), chr(39) + chr(39))}'"
     if filter_db != "All":
-        where += f" AND DATABASE_NAME = '{filter_db.replace(chr(39), chr(39)+chr(39))}'"
+        where += f" AND DATABASE_NAME = '{filter_db.replace(chr(39), chr(39) + chr(39))}'"
     return int(session.sql(f"SELECT COUNT(*) as cnt FROM {TABLE} WHERE {where}").to_pandas()["CNT"].iloc[0])
 
 
@@ -556,11 +444,11 @@ def load_entries_page(offset=0, limit=RECORDS_PER_PAGE, search_term="", filter_s
         search_conditions = " OR ".join([f"TO_VARCHAR({col}) ILIKE '%{safe_search}%'" for col in FIELD_COLUMNS])
         where += f" AND ({search_conditions})"
     if filter_source != "All":
-        where += f" AND SOURCE_SYSTEM = '{filter_source.replace(chr(39), chr(39)+chr(39))}'"
+        where += f" AND SOURCE_SYSTEM = '{filter_source.replace(chr(39), chr(39) + chr(39))}'"
     if filter_priority != "All":
-        where += f" AND PRIORITY = '{filter_priority.replace(chr(39), chr(39)+chr(39))}'"
+        where += f" AND PRIORITY = '{filter_priority.replace(chr(39), chr(39) + chr(39))}'"
     if filter_db != "All":
-        where += f" AND DATABASE_NAME = '{filter_db.replace(chr(39), chr(39)+chr(39))}'"
+        where += f" AND DATABASE_NAME = '{filter_db.replace(chr(39), chr(39) + chr(39))}'"
 
     df = session.sql(f"""
         SELECT {', '.join(FIELD_COLUMNS)}
@@ -850,191 +738,3 @@ with tab1:
                         st.rerun()
                     except Exception as e:
                         st.error(f"Failed to save entry: {str(e)}")
-
-with tab2:
-    if st.session_state.success_message and st.session_state.success_tab == "tab2":
-        st.markdown(f'<div class="success-box">{st.session_state.success_message}</div>', unsafe_allow_html=True)
-        st.session_state.success_message = None
-        st.session_state.success_tab = None
-
-    st.markdown('<div class="section-label">Search & Filter</div>', unsafe_allow_html=True)
-    fc1, fc2, fc3, fc4 = st.columns(4)
-    with fc1:
-        search_term = st.text_input("Search", placeholder="Free text search...", key="tab2_search")
-    with fc2:
-        source_systems = get_distinct_values("SOURCE_SYSTEM")
-        filter_source = st.selectbox("Source System", source_systems, key="filter_source")
-    with fc3:
-        priorities = get_distinct_values("PRIORITY")
-        filter_priority = st.selectbox("Priority", priorities, key="filter_priority")
-    with fc4:
-        databases = get_distinct_values("DATABASE_NAME")
-        filter_db = st.selectbox("Database Name", databases, key="filter_db")
-
-    current_filters = (search_term, filter_source, filter_priority, filter_db)
-    if current_filters != st.session_state.get("_prev_filters", ("", "All", "All", "All")):
-        st.session_state.current_page = 0
-    st.session_state._prev_filters = current_filters
-
-    total_count = get_total_count(search_term, filter_source, filter_priority, filter_db)
-    total_pages = int(max(1, (total_count + RECORDS_PER_PAGE - 1) // RECORDS_PER_PAGE))
-
-    if st.session_state.current_page >= total_pages:
-        st.session_state.current_page = total_pages - 1
-
-    page_offset = st.session_state.current_page * RECORDS_PER_PAGE
-    entries = load_entries_page(
-        offset=page_offset, limit=RECORDS_PER_PAGE,
-        search_term=search_term, filter_source=filter_source,
-        filter_priority=filter_priority, filter_db=filter_db
-    )
-
-    m1, m2, m3, m4 = st.columns(4)
-    with m1:
-        st.markdown(f'<div class="metric-card mc-blue"><p class="metric-value">{total_count}</p><p class="metric-label">Total Records</p></div>', unsafe_allow_html=True)
-    with m2:
-        src_count = session.sql(f"SELECT COUNT(DISTINCT SOURCE_SYSTEM) as c FROM {TABLE} WHERE AUDIT_CURRENT = TRUE").to_pandas()["C"].iloc[0]
-        st.markdown(f'<div class="metric-card mc-teal"><p class="metric-value">{src_count}</p><p class="metric-label">Source Systems</p></div>', unsafe_allow_html=True)
-    with m3:
-        db_count = session.sql(f"SELECT COUNT(DISTINCT DATABASE_NAME) as c FROM {TABLE} WHERE AUDIT_CURRENT = TRUE").to_pandas()["C"].iloc[0]
-        st.markdown(f'<div class="metric-card mc-purple"><p class="metric-value">{db_count}</p><p class="metric-label">Databases</p></div>', unsafe_allow_html=True)
-    with m4:
-        proj_count = session.sql(f"SELECT COUNT(DISTINCT PROJECT) as c FROM {TABLE} WHERE AUDIT_CURRENT = TRUE AND PROJECT IS NOT NULL AND PROJECT != ''").to_pandas()["C"].iloc[0]
-        st.markdown(f'<div class="metric-card mc-amber"><p class="metric-value">{proj_count}</p><p class="metric-label">Projects</p></div>', unsafe_allow_html=True)
-
-    st.markdown("")
-
-    exp_col1, exp_col2, exp_col3 = st.columns([1, 1, 3])
-    with exp_col1:
-        if entries:
-            csv_filtered = pd.DataFrame(entries).to_csv(index=False)
-            st.download_button(
-                "Export Current View",
-                data=csv_filtered,
-                file_name="handover_filtered_export.csv",
-                mime="text/csv",
-                use_container_width=True,
-            )
-    with exp_col2:
-        if st.button("Export All Records", use_container_width=True):
-            all_df = load_all_entries()
-            st.session_state._export_all_csv = all_df.to_csv(index=False)
-        if "_export_all_csv" in st.session_state and st.session_state._export_all_csv:
-            st.download_button(
-                "Download All Records",
-                data=st.session_state._export_all_csv,
-                file_name="handover_full_export.csv",
-                mime="text/csv",
-                use_container_width=True,
-            )
-
-    st.markdown("")
-
-    if not entries:
-        st.info("No entries found matching your filters.")
-    else:
-        for idx, entry in enumerate(entries):
-            with st.expander(
-                f"**{safe_str(entry.get('SOURCE_SYSTEM'), 'N/A')}**  |  "
-                f"{safe_str(entry.get('INTERFACE_NAME'), 'N/A')}  |  "
-                f"{safe_str(entry.get('DATABASE_NAME'), 'N/A')}  |  "
-                f"{safe_str(entry.get('PRIORITY'), '')}"
-            ):
-                col1, col2 = st.columns(2)
-                with col1:
-                    st.markdown('<div class="section-label">Source & Interface</div>', unsafe_allow_html=True)
-                    st.markdown(f"**Source System:** {safe_str(entry.get('SOURCE_SYSTEM'), 'N/A')}")
-                    st.markdown(f"**Project:** {safe_str(entry.get('PROJECT'), 'N/A')}")
-                    st.markdown(f"**Interface Name:** {safe_str(entry.get('INTERFACE_NAME'), 'N/A')}")
-                    st.markdown(f"**Source Pattern:** {safe_str(entry.get('SOURCE_PATTERN'), 'N/A')}")
-                    st.markdown(f"**Mechanism:** {safe_str(entry.get('MECHANISM'), 'N/A')}")
-                    st.markdown(f"**Time of Landing:** {safe_str(entry.get('TIME_OF_LANDING'), 'N/A')}")
-                    st.markdown("")
-                    st.markdown('<div class="section-label">Tables</div>', unsafe_allow_html=True)
-                    st.markdown(f"**Database:** {safe_str(entry.get('DATABASE_NAME'), 'N/A')}")
-                    st.markdown(f"**Stage Table:** {safe_str(entry.get('STAGE_TABLE_NAME'), 'N/A')}")
-                    st.markdown(f"**PSG Table:** {safe_str(entry.get('PSG_TABLE_NAME'), 'N/A')}")
-                with col2:
-                    st.markdown('<div class="section-label">Classification</div>', unsafe_allow_html=True)
-                    st.markdown(f"**Priority:** {safe_str(entry.get('PRIORITY'), 'N/A')}")
-                    st.markdown(f"**Load to Bronze:** {safe_str(entry.get('LOAD_TO_DATA_BRONZE_PRODUCTS'), 'N/A')}")
-                    st.markdown(f"**Encrypted:** {safe_str(entry.get('ENCRYPTED'), 'N/A')}")
-                    if safe_str(entry.get("ENCRYPTED")) == "YES":
-                        st.markdown(f"**Expiration Date:** {safe_str(entry.get('EXPIRATION_DATE'), 'N/A')}")
-                    st.markdown("")
-                    st.markdown('<div class="section-label">Contacts</div>', unsafe_allow_html=True)
-                    st.markdown(f"**Source Contact:** {safe_str(entry.get('SOURCE_CONTACT'), 'N/A')}")
-                    st.markdown(f"**ServiceNow Group:** {safe_str(entry.get('SOURCE_SERVICE_NOW_GROUP'), 'N/A')}")
-                    st.markdown(f"**Engineer:** {safe_str(entry.get('ENGINEER_EMAIL_ID'), 'N/A')}")
-                    st.markdown("")
-                    st.markdown('<div class="section-label">Documentation</div>', unsafe_allow_html=True)
-                    st.markdown(f"**HLD:** {safe_str(entry.get('HLD'), 'N/A')}")
-                    st.markdown(f"**IFM:** {safe_str(entry.get('IFM'), 'N/A')}")
-
-                comments_val = safe_str(entry.get("COMMENTS"))
-                if comments_val:
-                    st.markdown(f"**Comments:** {comments_val}")
-
-                st.markdown("---")
-                btn_col1, btn_col2, btn_col3, btn_col4 = st.columns([1, 1, 1, 3])
-
-                with btn_col1:
-                    if st.button("Edit", key=f"edit_{idx}_{st.session_state.current_page}", use_container_width=True):
-                        st.session_state.edit_mode = True
-                        st.session_state.edit_index = idx
-                        st.session_state.edit_entry = entry
-                        st.rerun()
-
-                entry_pk = {
-                    "SOURCE_SYSTEM": entry["SOURCE_SYSTEM"],
-                    "INTERFACE_NAME": entry["INTERFACE_NAME"],
-                    "DATABASE_NAME": entry["DATABASE_NAME"],
-                    "PSG_TABLE_NAME": entry["PSG_TABLE_NAME"],
-                }
-                is_delete_target = st.session_state.delete_target_pk == entry_pk
-
-                with btn_col2:
-                    if is_delete_target:
-                        if st.session_state.delete_confirm_step == 1:
-                            if st.button("Confirm?", key=f"del_c1_{idx}_{st.session_state.current_page}", use_container_width=True):
-                                st.session_state.delete_confirm_step = 2
-                                st.rerun()
-                        elif st.session_state.delete_confirm_step == 2:
-                            if st.button("DELETE!", key=f"del_c2_{idx}_{st.session_state.current_page}", use_container_width=True, type="primary"):
-                                try:
-                                    delete_entry(st.session_state.delete_target_pk, deleted_by=user_email)
-                                    st.session_state.delete_confirm_step = 0
-                                    st.session_state.delete_target = None
-                                    st.session_state.delete_target_pk = None
-                                    st.session_state.edit_mode = False
-                                    st.session_state.edit_index = None
-                                    st.session_state.pop("edit_entry", None)
-                                    st.session_state.success_message = "Entry deleted successfully."
-                                    st.session_state.success_tab = "tab2"
-                                    st.rerun()
-                                except Exception as e:
-                                    st.error(f"Failed to delete entry: {str(e)}")
-                    else:
-                        if st.button("Delete", key=f"del_{idx}_{st.session_state.current_page}", use_container_width=True):
-                            st.session_state.delete_target = idx
-                            st.session_state.delete_target_pk = entry_pk
-                            st.session_state.delete_confirm_step = 1
-                            st.session_state.edit_mode = False
-                            st.session_state.edit_index = None
-                            st.session_state.pop("edit_entry", None)
-                            st.rerun()
-
-                with btn_col3:
-                    if is_delete_target and st.session_state.delete_confirm_step > 0:
-                        if st.button("Cancel", key=f"del_cancel_{idx}_{st.session_state.current_page}", use_container_width=True):
-                            st.session_state.delete_confirm_step = 0
-                            st.session_state.delete_target = None
-                            st.session_state.delete_target_pk = None
-                            st.rerun()
-
-    st.markdown("---")
-    st.markdown(f'<div class="page-info">Page {st.session_state.current_page + 1} of {total_pages}  ({total_count} records)</div>', unsafe_allow_html=True)
-
-    pg0, pg1, pg2, pg3, pg4, pg5 = st.columns([1, 1, 1, 1, 1, 1])
-    with pg1:
-        if st.button("First", use_container_width=True, disabled=(st.session_state.current_page ==
