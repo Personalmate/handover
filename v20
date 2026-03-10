@@ -733,20 +733,6 @@ with tab1:
         st.session_state.success_message = None
         st.session_state.success_tab = None
 
-    st.markdown('<div class="section-label">Security</div>', unsafe_allow_html=True)
-    sec1, sec2 = st.columns(2)
-    with sec1:
-        encrypted = st.selectbox("Encrypted *", ENCRYPTED_OPTIONS, key="new_encrypted")
-    if encrypted != "YES":
-        st.session_state.new_expiration_date = None
-    with sec2:
-        expiration_date = st.date_input(
-            "Expiration Date *",
-            value=st.session_state.get("new_expiration_date"),
-            key="new_expiration_date",
-            disabled=(encrypted != "YES"),
-        )
-
     with st.form("new_entry_form"):
         st.markdown('<div class="section-label">Source & Interface</div>', unsafe_allow_html=True)
         col1, col2 = st.columns(2)
@@ -783,6 +769,21 @@ with tab1:
             hld = st.text_input("HLD (Confluence URL) *", key="new_hld")
         with col8:
             ifm = st.text_input("IFM (Confluence URL) *", key="new_ifm")
+
+
+        st.markdown('<div class="section-label">Security</div>', unsafe_allow_html=True)
+        sec1, sec2 = st.columns(2)
+        with sec1:
+            encrypted = st.selectbox("Encrypted *", ENCRYPTED_OPTIONS, key="new_encrypted")
+        if encrypted != "YES":
+            st.session_state.new_expiration_date = None
+        with sec2:
+            expiration_date = st.date_input(
+                "Expiration Date *",
+                value=st.session_state.get("new_expiration_date"),
+                key="new_expiration_date",
+                disabled=(encrypted != "YES"),
+            )
 
         comments = st.text_area("Comments *", key="new_comments", height=100)
 
