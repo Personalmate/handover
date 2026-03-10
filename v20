@@ -21,7 +21,7 @@ section[data-testid="stSidebar"], [data-testid="stSidebarContent"] {
 }
 [data-testid="stSidebar"] { background-color: #161b22 !important; }
 
-/* ===== ALL TEXT ELEMENTS ===== */
+/* ===== ALL TEXT ELEMENTS — force light text on dark bg ===== */
 p, span, label, div, li, ul, ol, h1, h2, h3, h4, h5, h6, a,
 strong, em, b, i, small, td, th, caption, figcaption,
 [data-testid="stMarkdown"], [data-testid="stMarkdown"] p,
@@ -34,7 +34,7 @@ strong, em, b, i, small, td, th, caption, figcaption,
     color: #fafafa !important;
 }
 
-/* ===== FORM LABELS ===== */
+/* ===== FORM LABELS — field names must be visible ===== */
 [data-testid="stTextInput"] label,
 [data-testid="stTextInput"] label p,
 [data-testid="stTextInput"] label span,
@@ -86,13 +86,14 @@ textarea, input,
 }
 input::placeholder, textarea::placeholder { color: #6b7280 !important; }
 input:focus, textarea:focus { border-color: #3b82f6 !important; box-shadow: 0 0 0 1px #3b82f6 !important; }
+/* Disabled inputs */
 input:disabled, textarea:disabled,
 [data-testid="stTextInput"] input:disabled {
     background-color: #12151c !important; color: #8b95a5 !important;
     border-color: #2a3040 !important; -webkit-text-fill-color: #8b95a5 !important;
 }
 
-/* ===== DROPDOWNS ===== */
+/* ===== DROPDOWNS / POPOVER MENUS ===== */
 [data-baseweb="popover"], [data-baseweb="popover"] > div,
 [data-baseweb="menu"], [data-baseweb="menu"] li,
 ul[role="listbox"], ul[role="listbox"] li,
@@ -103,6 +104,7 @@ ul[role="listbox"], ul[role="listbox"] li,
 [data-baseweb="menu"] li:hover, ul[role="listbox"] li:hover,
 [role="option"]:hover { background-color: #2a3040 !important; }
 [data-baseweb="select"] svg { fill: #fafafa !important; }
+/* Selected option text */
 [data-baseweb="select"] [data-testid="stMarkdown"],
 [data-baseweb="select"] span,
 [data-baseweb="select"] div[class*="value"] {
@@ -110,32 +112,19 @@ ul[role="listbox"], ul[role="listbox"] li,
 }
 
 /* ===== TABS ===== */
-[data-testid="stTabs"] button {
-    background-color: transparent !important;
-    color: #8b95a5 !important;
-    font-weight: 600 !important;
-    font-size: 18px !important;
-    letter-spacing: 0.3px !important;
-    padding: 12px 24px !important;
-    text-transform: uppercase !important;
-}
-[data-testid="stTabs"] button[aria-selected="true"] {
-    color: #fafafa !important;
-    border-bottom: 3px solid #3b82f6 !important;
-}
+[data-testid="stTabs"] button { background-color: transparent !important; color: #8b95a5 !important; font-weight: 600 !important; font-size: 18px !important; letter-spacing: 0.3px !important; padding: 12px 24px !important; text-transform: uppercase !important; }
+[data-testid="stTabs"] button[aria-selected="true"] { color: #fafafa !important; border-bottom: 3px solid #3b82f6 !important; }
 [data-testid="stTabs"] button:hover { color: #c0c8d4 !important; }
 [data-testid="stTabs"], [data-testid="stTabs"] > div {
     background-color: #0e1117 !important;
 }
 [data-testid="stTabs"] { margin-top: -40px !important; }
 
-/* ===== MODAL ===== */
+/* ===== MODAL / DIALOG ===== */
 [data-testid="stModal"] { background-color: rgba(0,0,0,0.85) !important; }
 [data-testid="stModal"] > div, [data-testid="stModal"] > div > div,
 [role="dialog"], [role="dialog"] > div {
-    background-color: #161b22 !important;
-    color: #fafafa !important;
-    border-radius: 12px !important;
+    background-color: #161b22 !important; color: #fafafa !important; border-radius: 12px !important;
 }
 [data-testid="stModal"] p, [data-testid="stModal"] span, [data-testid="stModal"] label,
 [data-testid="stModal"] div, [data-testid="stModal"] li, [data-testid="stModal"] strong,
@@ -145,58 +134,35 @@ ul[role="listbox"], ul[role="listbox"] li,
 }
 
 /* ===== BUTTONS ===== */
-button {
-    background-color: #1c2030 !important;
-    color: #fafafa !important;
-    border-color: #3a3f52 !important;
-    border-radius: 6px !important;
-    font-weight: 500 !important;
-}
+button { background-color: #1c2030 !important; color: #fafafa !important; border-color: #3a3f52 !important; border-radius: 6px !important; font-weight: 500 !important; }
 button:hover { background-color: #2a3040 !important; border-color: #4a5068 !important; }
-[data-testid="baseButton-primary"] {
-    background: linear-gradient(135deg, #da3633, #b62324) !important;
-    color: #ffffff !important;
-    border: none !important;
-}
-[data-testid="baseButton-primary"]:hover {
-    background: linear-gradient(135deg, #f85149, #da3633) !important;
-}
+[data-testid="baseButton-primary"] { background: linear-gradient(135deg, #da3633, #b62324) !important; color: #ffffff !important; border: none !important; }
+[data-testid="baseButton-primary"]:hover { background: linear-gradient(135deg, #f85149, #da3633) !important; }
+/* Blue primary for Update button inside edit dialog */
 [data-testid="stModal"] [data-testid="baseButton-primary"],
 [role="dialog"] [data-testid="baseButton-primary"] {
-    background: linear-gradient(135deg, #3b82f6, #2563eb) !important;
-    color: #ffffff !important;
-    border: none !important;
+    background: linear-gradient(135deg, #3b82f6, #2563eb) !important; color: #ffffff !important; border: none !important;
 }
 [data-testid="stModal"] [data-testid="baseButton-primary"]:hover,
 [role="dialog"] [data-testid="baseButton-primary"]:hover {
     background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
 }
+/* Green save/submit button inside forms */
 [data-testid="stForm"] [data-testid="baseButton-primary"],
 [data-testid="stForm"] [data-testid="stFormSubmitButton"] button {
-    background: linear-gradient(135deg, #238636, #1a7f37) !important;
-    color: #ffffff !important;
-    border: none !important;
-    font-weight: 600 !important;
-    font-size: 15px !important;
-    padding: 10px 20px !important;
+    background: linear-gradient(135deg, #238636, #1a7f37) !important; color: #ffffff !important; border: none !important;
+    font-weight: 600 !important; font-size: 15px !important; padding: 10px 20px !important;
 }
 [data-testid="stForm"] [data-testid="baseButton-primary"]:hover,
 [data-testid="stForm"] [data-testid="stFormSubmitButton"] button:hover {
     background: linear-gradient(135deg, #2ea043, #238636) !important;
 }
-[data-testid="stDownloadButton"] button {
-    background-color: #1c2030 !important;
-    color: #fafafa !important;
-}
+/* Download buttons */
+[data-testid="stDownloadButton"] button { background-color: #1c2030 !important; color: #fafafa !important; }
 [data-testid="stDownloadButton"] button:hover { background-color: #2a3040 !important; }
 
 /* ===== EXPANDER ===== */
-[data-testid="stExpander"] {
-    background-color: #161b22 !important;
-    border: 1px solid #2a3040 !important;
-    border-radius: 8px !important;
-    margin-bottom: 8px !important;
-}
+[data-testid="stExpander"] { background-color: #161b22 !important; border: 1px solid #2a3040 !important; border-radius: 8px !important; margin-bottom: 8px !important; }
 [data-testid="stExpander"] summary { color: #fafafa !important; }
 [data-testid="stExpander"] summary:hover { color: #3b82f6 !important; }
 [data-testid="stExpander"] > div, [data-testid="stExpander"] details,
@@ -219,6 +185,7 @@ button:hover { background-color: #2a3040 !important; border-color: #4a5068 !impo
 [data-testid="stDataFrame"] table {
     background-color: #161b22 !important; color: #fafafa !important;
 }
+/* Glide Data Grid canvas theme — these CSS vars control the canvas-rendered cells */
 [data-testid="stDataFrame"] > div {
     --gdg-bg-cell: #161b22 !important;
     --gdg-bg-cell-medium: #161b22 !important;
@@ -247,6 +214,7 @@ button:hover { background-color: #2a3040 !important; border-color: #4a5068 !impo
     --gdg-bg-icon-header: #8b95a5 !important;
     --gdg-fg-icon-header: #161b22 !important;
 }
+/* Glide Data Grid cells (Streamlit dataframe) */
 [data-testid="stDataFrame"] canvas + div,
 [data-testid="stDataFrame"] [class*="cell"],
 [data-testid="stDataFrame"] [role="grid"],
@@ -255,6 +223,7 @@ button:hover { background-color: #2a3040 !important; border-color: #4a5068 !impo
 [data-testid="stDataFrame"] [role="row"] {
     background-color: #161b22 !important; color: #fafafa !important;
 }
+/* Dataframe toolbar / search */
 [data-testid="stDataFrame"] [data-testid="stElementToolbar"],
 [data-testid="stDataFrame"] [data-testid="stElementToolbar"] button {
     background-color: #1c2030 !important; color: #fafafa !important;
@@ -268,10 +237,9 @@ button:hover { background-color: #2a3040 !important; border-color: #4a5068 !impo
     background-color: #0e1117 !important;
 }
 
-/* ===== ALERTS ===== */
+/* ===== ALERT / INFO / SUCCESS / ERROR BOXES ===== */
 [data-testid="stAlert"], [role="alert"] {
-    background-color: #161b22 !important;
-    color: #fafafa !important;
+    background-color: #161b22 !important; color: #fafafa !important;
     border-color: #2a3040 !important;
 }
 [data-testid="stAlert"] p, [data-testid="stAlert"] span,
@@ -284,7 +252,7 @@ hr, [data-testid="stMarkdown"] hr {
     border-color: #2a3040 !important; background-color: #2a3040 !important;
 }
 
-/* ===== COLUMNS ===== */
+/* ===== COLUMNS — transparent bg ===== */
 [data-testid="stColumn"], [data-testid="stColumn"] > div {
     background-color: transparent !important;
 }
@@ -319,10 +287,8 @@ hr, [data-testid="stMarkdown"] hr {
     padding: 16px 20px; text-align: center; border-left: 3px solid #3b82f6;
 }
 .metric-value { font-size: 28px; font-weight: 700; color: #3b82f6 !important; margin: 0; }
-.metric-label {
-    font-size: 11px; color: #8b95a5 !important; margin: 6px 0 0 0;
-    text-transform: uppercase; letter-spacing: 0.8px; font-weight: 500;
-}
+.metric-label { font-size: 11px; color: #8b95a5 !important; margin: 6px 0 0 0; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 500; }
+/* Colored card variants */
 .mc-blue { border-left-color: #3b82f6; }
 .mc-blue .metric-value { color: #3b82f6 !important; }
 .mc-teal { border-left-color: #14b8a6; }
@@ -343,10 +309,16 @@ hr, [data-testid="stMarkdown"] hr {
     letter-spacing: 1px; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid #2a3040;
 }
 
+.detail-row { display: flex; padding: 4px 0; }
+.detail-key { color: #8b95a5 !important; font-size: 13px; min-width: 140px; }
+.detail-val { color: #e6edf3 !important; font-size: 13px; font-weight: 500; }
+
 .error-msg { color: #f85149 !important; font-size: 13px; margin-top: 4px; padding: 2px 0; }
 .error-msg strong { color: #f85149 !important; }
 
 .main .block-container { padding-top: 1rem; padding-bottom: 1rem; max-width: 100%; }
+
+.filter-container { background: #161b22; border: 1px solid #2a3040; border-radius: 8px; padding: 12px 16px; margin-bottom: 12px; }
 
 .page-info { color: #8b95a5 !important; font-size: 13px; text-align: center; padding: 8px 0; }
 
@@ -377,10 +349,7 @@ hr, [data-testid="stMarkdown"] hr {
     text-align: left;
 }
 .dashboard-table th:last-child { text-align: center; }
-.dashboard-table td {
-    padding: 8px 14px; border-bottom: 1px solid #1c2030; color: #e6edf3 !important;
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-}
+.dashboard-table td { padding: 8px 14px; border-bottom: 1px solid #1c2030; color: #e6edf3 !important; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .dashboard-table td:last-child { text-align: center; font-weight: 600; color: #3b82f6 !important; }
 .dashboard-table tr:hover { background: #1c2030 !important; }
 .dashboard-table tr { background-color: #161b22 !important; }
@@ -473,7 +442,6 @@ FORM_FIELD_DEFAULTS = {
     "new_encrypted": "-- Select --", "new_expiration_date": None,
 }
 
-
 def validate_form(data):
     errors = {"missing": [], "dropdown": [], "spaces": [], "trailing": [], "confluence": [], "db_prefix": []}
     for field, value in data.items():
@@ -501,10 +469,8 @@ def validate_form(data):
                     errors["confluence"].append(label)
                 if field == "DATABASE_NAME" and not val.upper().startswith(DB_NAME_PREFIX):
                     errors["db_prefix"].append(label)
-
     if data.get("ENCRYPTED") == "YES" and not data.get("EXPIRATION_DATE"):
         errors["missing"].append(FIELD_LABELS["EXPIRATION_DATE"])
-
     result = []
     if errors["missing"]:
         result.append(("Mandatory fields left empty", errors["missing"]))
@@ -546,7 +512,7 @@ def get_total_count(search_term="", filter_source="All", filter_priority="All", 
         where += f" AND PRIORITY = '{filter_priority.replace(chr(39), chr(39)+chr(39))}'"
     if filter_db != "All":
         where += f" AND DATABASE_NAME = '{filter_db.replace(chr(39), chr(39)+chr(39))}'"
-    return int(session.sql(f"SELECT COUNT(*) as cnt FROM {TABLE} WHERE {where}").to_pandas()["CNT"].iloc[0])
+    return int(session.sql(f"SELECT COUNT(*) as cnt FROM {TABLE} WHERE {where}").to_pandas()['CNT'].iloc[0])
 
 
 def load_entries_page(offset=0, limit=RECORDS_PER_PAGE, search_term="", filter_source="All", filter_priority="All", filter_db="All"):
@@ -561,7 +527,6 @@ def load_entries_page(offset=0, limit=RECORDS_PER_PAGE, search_term="", filter_s
         where += f" AND PRIORITY = '{filter_priority.replace(chr(39), chr(39)+chr(39))}'"
     if filter_db != "All":
         where += f" AND DATABASE_NAME = '{filter_db.replace(chr(39), chr(39)+chr(39))}'"
-
     df = session.sql(f"""
         SELECT {', '.join(FIELD_COLUMNS)}
         FROM {TABLE}
@@ -569,7 +534,7 @@ def load_entries_page(offset=0, limit=RECORDS_PER_PAGE, search_term="", filter_s
         ORDER BY SOURCE_SYSTEM, INTERFACE_NAME
         LIMIT {limit} OFFSET {offset}
     """).to_pandas()
-    return df.to_dict("records")
+    return df.to_dict('records')
 
 
 def load_all_entries():
@@ -597,25 +562,21 @@ def check_duplicate_in_db(source_system, interface_name, database_name, psg_tabl
           AND DATABASE_NAME = '{safe["dn"]}'
           AND PSG_TABLE_NAME = '{safe["pt"]}'
     """).to_pandas()
-    return result["CNT"].iloc[0] > 0
+    return result['CNT'].iloc[0] > 0
 
 
 def insert_entry(data):
     safe = {k: str(v).replace("'", "''") if v else "" for k, v in data.items()}
     cols = ", ".join(FIELD_COLUMNS)
     vals = []
-
     for column in FIELD_COLUMNS:
-        value = safe.get(column, "")
-        if column == "EXPIRATION_DATE" and not value:
+        if column == "EXPIRATION_DATE" and not safe.get(column):
             vals.append("NULL")
         else:
-            vals.append(f"'{value}'")
-
+            vals.append(f"'{safe.get(column, "") }'")
     vals_sql = ", ".join(vals)
     hashkey_src = safe["SOURCE_SYSTEM"] + safe["INTERFACE_NAME"] + safe["DATABASE_NAME"] + safe["PSG_TABLE_NAME"]
     hashdiff_src = "".join(safe.get(c, "") for c in FIELD_COLUMNS)
-
     sql = f"""
         INSERT INTO {TABLE}
         ({cols}, AUDIT_FILE_PROCESSED_DATE, AUDIT_FILE_NAME, AUDIT_JOB_GUID,
@@ -624,6 +585,8 @@ def insert_entry(data):
                TRUE, CURRENT_DATE(), MD5('{hashkey_src}'), MD5('{hashdiff_src}')
     """
     session.sql(sql).collect()
+
+
 
 
 def update_entry(old_pk, data, modified_by=""):
@@ -669,12 +632,14 @@ def get_distinct_values(column):
 
 
 def safe_str(value, default=""):
+    """Safely convert a value to string, handling None/NaN from Snowflake."""
     if value is None or (isinstance(value, float) and pd.isna(value)):
         return default
     return str(value)
 
 
 def safe_date_value(value):
+    """Return a date object for Streamlit date_input, or None when unavailable."""
     if value is None or (isinstance(value, float) and pd.isna(value)):
         return None
     if hasattr(value, "date"):
@@ -723,7 +688,7 @@ def render_dashboard_table(df, name_col, count_col="Count"):
     """
 
 
-st.markdown("""
+st.markdown(f"""
 <div class="header-container">
     <h1 class="header-title">Project Handover Form</h1>
 </div>
@@ -767,10 +732,6 @@ with tab1:
         st.session_state.success_message = None
         st.session_state.success_tab = None
 
-    encrypted = st.selectbox("Encrypted *", ENCRYPTED_OPTIONS, key="new_encrypted")
-    if encrypted != "YES":
-        st.session_state.new_expiration_date = None
-
     with st.form("new_entry_form"):
         st.markdown('<div class="section-label">Source & Interface</div>', unsafe_allow_html=True)
         col1, col2 = st.columns(2)
@@ -809,12 +770,18 @@ with tab1:
             ifm = st.text_input("IFM (Confluence URL) *", key="new_ifm")
 
         st.markdown('<div class="section-label">Security</div>', unsafe_allow_html=True)
-        expiration_date = st.date_input(
-            "Expiration Date *",
-            value=st.session_state.get("new_expiration_date"),
-            key="new_expiration_date",
-            disabled=(encrypted != "YES"),
-        )
+        sec1, sec2 = st.columns(2)
+        with sec1:
+            encrypted = st.selectbox("Encrypted *", ENCRYPTED_OPTIONS, key="new_encrypted")
+        with sec2:
+            expiration_date = st.date_input(
+                "Expiration Date *",
+                value=st.session_state.get("new_expiration_date"),
+                key="new_expiration_date",
+                disabled=(encrypted != "YES"),
+            )
+        if encrypted != "YES":
+            st.session_state.new_expiration_date = None
         comments = st.text_area("Comments *", key="new_comments", height=100)
 
         submitted = st.form_submit_button("Save Entry", type="primary", use_container_width=True)
@@ -837,7 +804,7 @@ with tab1:
             else:
                 form_data = clean_all_fields(form_data)
                 if check_duplicate_in_db(form_data["SOURCE_SYSTEM"], form_data["INTERFACE_NAME"],
-                                         form_data["DATABASE_NAME"], form_data["PSG_TABLE_NAME"]):
+                                          form_data["DATABASE_NAME"], form_data["PSG_TABLE_NAME"]):
                     st.error("An entry with this primary key combination already exists.")
                 else:
                     try:
@@ -890,13 +857,13 @@ with tab2:
     with m1:
         st.markdown(f'<div class="metric-card mc-blue"><p class="metric-value">{total_count}</p><p class="metric-label">Total Records</p></div>', unsafe_allow_html=True)
     with m2:
-        src_count = session.sql(f"SELECT COUNT(DISTINCT SOURCE_SYSTEM) as c FROM {TABLE} WHERE AUDIT_CURRENT = TRUE").to_pandas()["C"].iloc[0]
+        src_count = session.sql(f"SELECT COUNT(DISTINCT SOURCE_SYSTEM) as c FROM {TABLE} WHERE AUDIT_CURRENT = TRUE").to_pandas()['C'].iloc[0]
         st.markdown(f'<div class="metric-card mc-teal"><p class="metric-value">{src_count}</p><p class="metric-label">Source Systems</p></div>', unsafe_allow_html=True)
     with m3:
-        db_count = session.sql(f"SELECT COUNT(DISTINCT DATABASE_NAME) as c FROM {TABLE} WHERE AUDIT_CURRENT = TRUE").to_pandas()["C"].iloc[0]
+        db_count = session.sql(f"SELECT COUNT(DISTINCT DATABASE_NAME) as c FROM {TABLE} WHERE AUDIT_CURRENT = TRUE").to_pandas()['C'].iloc[0]
         st.markdown(f'<div class="metric-card mc-purple"><p class="metric-value">{db_count}</p><p class="metric-label">Databases</p></div>', unsafe_allow_html=True)
     with m4:
-        proj_count = session.sql(f"SELECT COUNT(DISTINCT PROJECT) as c FROM {TABLE} WHERE AUDIT_CURRENT = TRUE AND PROJECT IS NOT NULL AND PROJECT != ''").to_pandas()["C"].iloc[0]
+        proj_count = session.sql(f"SELECT COUNT(DISTINCT PROJECT) as c FROM {TABLE} WHERE AUDIT_CURRENT = TRUE AND PROJECT IS NOT NULL AND PROJECT != ''").to_pandas()['C'].iloc[0]
         st.markdown(f'<div class="metric-card mc-amber"><p class="metric-value">{proj_count}</p><p class="metric-label">Projects</p></div>', unsafe_allow_html=True)
 
     st.markdown("")
@@ -905,25 +872,17 @@ with tab2:
     with exp_col1:
         if entries:
             csv_filtered = pd.DataFrame(entries).to_csv(index=False)
-            st.download_button(
-                "Export Current View",
-                data=csv_filtered,
-                file_name="handover_filtered_export.csv",
-                mime="text/csv",
-                use_container_width=True,
-            )
+            st.download_button("Export Current View", data=csv_filtered,
+                               file_name="handover_filtered_export.csv", mime="text/csv",
+                               use_container_width=True)
     with exp_col2:
         if st.button("Export All Records", use_container_width=True):
             all_df = load_all_entries()
             st.session_state._export_all_csv = all_df.to_csv(index=False)
         if "_export_all_csv" in st.session_state and st.session_state._export_all_csv:
-            st.download_button(
-                "Download All Records",
-                data=st.session_state._export_all_csv,
-                file_name="handover_full_export.csv",
-                mime="text/csv",
-                use_container_width=True,
-            )
+            st.download_button("Download All Records", data=st.session_state._export_all_csv,
+                               file_name="handover_full_export.csv", mime="text/csv",
+                               use_container_width=True)
 
     st.markdown("")
 
@@ -931,12 +890,7 @@ with tab2:
         st.info("No entries found matching your filters.")
     else:
         for idx, entry in enumerate(entries):
-            with st.expander(
-                f"**{safe_str(entry.get('SOURCE_SYSTEM'), 'N/A')}**  |  "
-                f"{safe_str(entry.get('INTERFACE_NAME'), 'N/A')}  |  "
-                f"{safe_str(entry.get('DATABASE_NAME'), 'N/A')}  |  "
-                f"{safe_str(entry.get('PRIORITY'), '')}"
-            ):
+            with st.expander(f"**{safe_str(entry.get('SOURCE_SYSTEM'), 'N/A')}**  |  {safe_str(entry.get('INTERFACE_NAME'), 'N/A')}  |  {safe_str(entry.get('DATABASE_NAME'), 'N/A')}  |  {safe_str(entry.get('PRIORITY'), '')}"):
                 col1, col2 = st.columns(2)
                 with col1:
                     st.markdown('<div class="section-label">Source & Interface</div>', unsafe_allow_html=True)
@@ -956,7 +910,7 @@ with tab2:
                     st.markdown(f"**Priority:** {safe_str(entry.get('PRIORITY'), 'N/A')}")
                     st.markdown(f"**Load to Bronze:** {safe_str(entry.get('LOAD_TO_DATA_BRONZE_PRODUCTS'), 'N/A')}")
                     st.markdown(f"**Encrypted:** {safe_str(entry.get('ENCRYPTED'), 'N/A')}")
-                    if safe_str(entry.get("ENCRYPTED")) == "YES":
+                    if safe_str(entry.get('ENCRYPTED')) == 'YES':
                         st.markdown(f"**Expiration Date:** {safe_str(entry.get('EXPIRATION_DATE'), 'N/A')}")
                     st.markdown("")
                     st.markdown('<div class="section-label">Contacts</div>', unsafe_allow_html=True)
@@ -968,28 +922,25 @@ with tab2:
                     st.markdown(f"**HLD:** {safe_str(entry.get('HLD'), 'N/A')}")
                     st.markdown(f"**IFM:** {safe_str(entry.get('IFM'), 'N/A')}")
 
-                comments_val = safe_str(entry.get("COMMENTS"))
+                comments_val = safe_str(entry.get('COMMENTS'))
                 if comments_val:
                     st.markdown(f"**Comments:** {comments_val}")
 
                 st.markdown("---")
                 btn_col1, btn_col2, btn_col3, btn_col4 = st.columns([1, 1, 1, 3])
-
                 with btn_col1:
                     if st.button("Edit", key=f"edit_{idx}_{st.session_state.current_page}", use_container_width=True):
                         st.session_state.edit_mode = True
                         st.session_state.edit_index = idx
                         st.session_state.edit_entry = entry
                         st.rerun()
-
                 entry_pk = {
                     "SOURCE_SYSTEM": entry["SOURCE_SYSTEM"],
                     "INTERFACE_NAME": entry["INTERFACE_NAME"],
                     "DATABASE_NAME": entry["DATABASE_NAME"],
-                    "PSG_TABLE_NAME": entry["PSG_TABLE_NAME"],
+                    "PSG_TABLE_NAME": entry["PSG_TABLE_NAME"]
                 }
-                is_delete_target = st.session_state.delete_target_pk == entry_pk
-
+                is_delete_target = (st.session_state.delete_target_pk == entry_pk)
                 with btn_col2:
                     if is_delete_target:
                         if st.session_state.delete_confirm_step == 1:
@@ -1020,7 +971,6 @@ with tab2:
                             st.session_state.edit_index = None
                             st.session_state.pop("edit_entry", None)
                             st.rerun()
-
                 with btn_col3:
                     if is_delete_target and st.session_state.delete_confirm_step > 0:
                         if st.button("Cancel", key=f"del_cancel_{idx}_{st.session_state.current_page}", use_container_width=True):
@@ -1031,7 +981,6 @@ with tab2:
 
     st.markdown("---")
     st.markdown(f'<div class="page-info">Page {st.session_state.current_page + 1} of {total_pages}  ({total_count} records)</div>', unsafe_allow_html=True)
-
     pg0, pg1, pg2, pg3, pg4, pg5 = st.columns([1, 1, 1, 1, 1, 1])
     with pg1:
         if st.button("First", use_container_width=True, disabled=(st.session_state.current_page == 0)):
@@ -1092,12 +1041,10 @@ if is_admin and tab3 is not None:
         if history_df.empty:
             st.info("No history found.")
         else:
-            history_df = history_df.drop(columns=["AUDIT_FILE_PROCESSED_DATE"])
-            history_df.columns = ["Source System", "Interface Name", "Database", "PSG Table", "Changed By", "Status"]
-            st.markdown(
-                f'<div style="max-height:500px;overflow-y:auto;border:1px solid #2a3040;border-radius:8px;">{render_html_table(history_df)}</div>',
-                unsafe_allow_html=True
-            )
+            history_df = history_df.drop(columns=['AUDIT_FILE_PROCESSED_DATE'])
+            history_df.columns = ['Source System', 'Interface Name', 'Database',
+                                  'PSG Table', 'Changed By', 'Status']
+            st.markdown(f'<div style="max-height:500px;overflow-y:auto;border:1px solid #2a3040;border-radius:8px;">{render_html_table(history_df)}</div>', unsafe_allow_html=True)
 
             st.markdown("---")
             st.markdown('<div class="section-label">Change Timeline</div>', unsafe_allow_html=True)
@@ -1113,11 +1060,8 @@ if is_admin and tab3 is not None:
             """).to_pandas()
 
             if not timeline_df.empty:
-                timeline_df.columns = ["Date", "Total Changes", "Additions", "Removals"]
-                st.markdown(
-                    f'<div style="max-height:300px;overflow-y:auto;border:1px solid #2a3040;border-radius:8px;">{render_html_table(timeline_df)}</div>',
-                    unsafe_allow_html=True
-                )
+                timeline_df.columns = ['Date', 'Total Changes', 'Additions', 'Removals']
+                st.markdown(f'<div style="max-height:300px;overflow-y:auto;border:1px solid #2a3040;border-radius:8px;">{render_html_table(timeline_df)}</div>', unsafe_allow_html=True)
             else:
                 st.info("No changes in the last 30 days.")
 
@@ -1130,13 +1074,13 @@ if is_admin and tab4 is not None:
             dash_total = get_total_count()
             st.markdown(f'<div class="metric-card mc-blue"><p class="metric-value">{dash_total}</p><p class="metric-label">Total Interfaces</p></div>', unsafe_allow_html=True)
         with d2:
-            p1_count = session.sql(f"SELECT COUNT(*) as c FROM {TABLE} WHERE AUDIT_CURRENT = TRUE AND PRIORITY = 'P1'").to_pandas()["C"].iloc[0]
+            p1_count = session.sql(f"SELECT COUNT(*) as c FROM {TABLE} WHERE AUDIT_CURRENT = TRUE AND PRIORITY = 'P1'").to_pandas()['C'].iloc[0]
             st.markdown(f'<div class="metric-card mc-red"><p class="metric-value">{p1_count}</p><p class="metric-label">P1 Priority</p></div>', unsafe_allow_html=True)
         with d3:
-            p2_count = session.sql(f"SELECT COUNT(*) as c FROM {TABLE} WHERE AUDIT_CURRENT = TRUE AND PRIORITY = 'P2'").to_pandas()["C"].iloc[0]
+            p2_count = session.sql(f"SELECT COUNT(*) as c FROM {TABLE} WHERE AUDIT_CURRENT = TRUE AND PRIORITY = 'P2'").to_pandas()['C'].iloc[0]
             st.markdown(f'<div class="metric-card mc-orange"><p class="metric-value">{p2_count}</p><p class="metric-label">P2 Priority</p></div>', unsafe_allow_html=True)
         with d4:
-            p3_count = session.sql(f"SELECT COUNT(*) as c FROM {TABLE} WHERE AUDIT_CURRENT = TRUE AND PRIORITY = 'P3'").to_pandas()["C"].iloc[0]
+            p3_count = session.sql(f"SELECT COUNT(*) as c FROM {TABLE} WHERE AUDIT_CURRENT = TRUE AND PRIORITY = 'P3'").to_pandas()['C'].iloc[0]
             st.markdown(f'<div class="metric-card mc-green"><p class="metric-value">{p3_count}</p><p class="metric-label">P3 Priority</p></div>', unsafe_allow_html=True)
 
         st.markdown("")
@@ -1247,45 +1191,29 @@ if st.session_state.edit_mode and st.session_state.edit_index is not None and "e
             st.markdown('<div class="section-label">Details</div>', unsafe_allow_html=True)
             project = st.text_input("Project *", value=safe_str(entry.get("PROJECT")), key="edit_project")
             source_pattern_val = safe_str(entry.get("SOURCE_PATTERN"))
-            source_pattern = st.selectbox(
-                "Source Pattern *",
-                SOURCE_PATTERN_OPTIONS,
+            source_pattern = st.selectbox("Source Pattern *", SOURCE_PATTERN_OPTIONS,
                 index=SOURCE_PATTERN_OPTIONS.index(source_pattern_val) if source_pattern_val in SOURCE_PATTERN_OPTIONS else 0,
-                key="edit_source_pattern",
-            )
+                key="edit_source_pattern")
             mechanism_val = safe_str(entry.get("MECHANISM"))
-            mechanism = st.selectbox(
-                "Mechanism *",
-                MECHANISM_OPTIONS,
+            mechanism = st.selectbox("Mechanism *", MECHANISM_OPTIONS,
                 index=MECHANISM_OPTIONS.index(mechanism_val) if mechanism_val in MECHANISM_OPTIONS else 0,
-                key="edit_mechanism",
-            )
+                key="edit_mechanism")
             time_of_landing = st.text_input("Time of Landing *", value=safe_str(entry.get("TIME_OF_LANDING")), key="edit_time_of_landing")
-
         with col2:
             st.markdown('<div class="section-label">Table & Classification</div>', unsafe_allow_html=True)
             stage_table_name = st.text_input("Stage Table Name *", value=safe_str(entry.get("STAGE_TABLE_NAME")), key="edit_stage_table_name")
             priority_val = safe_str(entry.get("PRIORITY"))
-            priority = st.selectbox(
-                "Priority *",
-                PRIORITY_OPTIONS,
+            priority = st.selectbox("Priority *", PRIORITY_OPTIONS,
                 index=PRIORITY_OPTIONS.index(priority_val) if priority_val in PRIORITY_OPTIONS else 0,
-                key="edit_priority",
-            )
+                key="edit_priority")
             load_bronze_val = safe_str(entry.get("LOAD_TO_DATA_BRONZE_PRODUCTS"))
-            load_bronze = st.selectbox(
-                "Load to Data Bronze Products *",
-                LOAD_BRONZE_OPTIONS,
+            load_bronze = st.selectbox("Load to Data Bronze Products *", LOAD_BRONZE_OPTIONS,
                 index=LOAD_BRONZE_OPTIONS.index(load_bronze_val) if load_bronze_val in LOAD_BRONZE_OPTIONS else 0,
-                key="edit_load_bronze",
-            )
+                key="edit_load_bronze")
             encrypted_val = safe_str(entry.get("ENCRYPTED"))
-            encrypted = st.selectbox(
-                "Encrypted *",
-                ENCRYPTED_OPTIONS,
+            encrypted = st.selectbox("Encrypted *", ENCRYPTED_OPTIONS,
                 index=ENCRYPTED_OPTIONS.index(encrypted_val) if encrypted_val in ENCRYPTED_OPTIONS else 0,
-                key="edit_encrypted",
-            )
+                key="edit_encrypted")
             if encrypted != "YES":
                 st.session_state.edit_expiration_date = None
             expiration_date = st.date_input(
@@ -1301,32 +1229,19 @@ if st.session_state.edit_mode and st.session_state.edit_index is not None and "e
             st.markdown('<div class="section-label">Documentation</div>', unsafe_allow_html=True)
             hld = st.text_input("HLD (Confluence URL) *", value=safe_str(entry.get("HLD")), key="edit_hld")
             ifm = st.text_input("IFM (Confluence URL) *", value=safe_str(entry.get("IFM")), key="edit_ifm")
-
         comments = st.text_area("Comments *", value=safe_str(entry.get("COMMENTS")), key="edit_comments", height=100)
 
         btn_col1, btn_col2 = st.columns(2)
         with btn_col1:
             if st.button("Update", type="primary", use_container_width=True):
                 updated_data = {
-                    "SOURCE_SYSTEM": source_system,
-                    "PROJECT": project,
-                    "INTERFACE_NAME": interface_name,
-                    "SOURCE_PATTERN": source_pattern,
-                    "MECHANISM": mechanism,
-                    "TIME_OF_LANDING": time_of_landing,
-                    "DATABASE_NAME": database_name,
-                    "STAGE_TABLE_NAME": stage_table_name,
-                    "PSG_TABLE_NAME": psg_table_name,
-                    "PRIORITY": priority,
-                    "LOAD_TO_DATA_BRONZE_PRODUCTS": load_bronze,
-                    "SOURCE_CONTACT": source_contact,
-                    "SOURCE_SERVICE_NOW_GROUP": source_snow_group,
-                    "ENGINEER_EMAIL_ID": engineer_email,
-                    "HLD": hld,
-                    "IFM": ifm,
-                    "COMMENTS": comments,
-                    "ENCRYPTED": encrypted,
-                    "EXPIRATION_DATE": expiration_date,
+                    "SOURCE_SYSTEM": source_system, "PROJECT": project, "INTERFACE_NAME": interface_name,
+                    "SOURCE_PATTERN": source_pattern, "MECHANISM": mechanism, "TIME_OF_LANDING": time_of_landing,
+                    "DATABASE_NAME": database_name, "STAGE_TABLE_NAME": stage_table_name, "PSG_TABLE_NAME": psg_table_name,
+                    "PRIORITY": priority, "LOAD_TO_DATA_BRONZE_PRODUCTS": load_bronze, "SOURCE_CONTACT": source_contact,
+                    "SOURCE_SERVICE_NOW_GROUP": source_snow_group, "ENGINEER_EMAIL_ID": engineer_email,
+                    "HLD": hld, "IFM": ifm, "COMMENTS": comments,
+                    "ENCRYPTED": encrypted, "EXPIRATION_DATE": expiration_date
                 }
                 errors = validate_form(updated_data)
                 if errors:
@@ -1339,7 +1254,7 @@ if st.session_state.edit_mode and st.session_state.edit_index is not None and "e
                         "SOURCE_SYSTEM": safe_str(entry.get("SOURCE_SYSTEM")),
                         "INTERFACE_NAME": safe_str(entry.get("INTERFACE_NAME")),
                         "DATABASE_NAME": safe_str(entry.get("DATABASE_NAME")),
-                        "PSG_TABLE_NAME": safe_str(entry.get("PSG_TABLE_NAME")),
+                        "PSG_TABLE_NAME": safe_str(entry.get("PSG_TABLE_NAME"))
                     }
                     try:
                         update_entry(old_pk, updated_data, modified_by=user_email)
