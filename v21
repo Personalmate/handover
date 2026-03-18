@@ -3,13 +3,16 @@ proj_df = session.sql("""
     FROM DB_CORE_BUSI_MNGD_FILES_PRD.PSG.INSIGHTS_CORE_INGESTION
 """).to_pandas()
 
-project_map = (
-    proj_df[["PSG_TABLE_NAME", "PROJECT"]]
-    .drop_duplicates("PSG_TABLE_NAME")
-    .set_index("PSG_TABLE_NAME")["PROJECT"]
-    .to_dict()
-)
+project_map = {}
+for _, r in proj_df.iterrows():
+    if pd.notna(r["PSG_TABLE_NAME"]) and str(r["PSG_TABLE_NAME"]).strip():
+        project_map[str(r["PSG_TABLE_NAME"]).strip().upper()] = r["PROJECT"]
+    if pd.notna(r["INTERFACE_NAME"]) and str(r["INTERFACE_NAME"]).strip():
+        project_map[str(r["INTERFACE_NAME"]).strip().upper()] = r["PROJECT"]
 
 
 
-details = proj_df.loc[proj_df["PSG_TABLE_NAME"] == tbl, ["PROJECT", "SOURCE_SYSTEM"]]
+details = proj_df.loc[
+    (proj_df["PSG_TABLE_NAME"] == tbl) | (proj_df["INTERFACE_NAME"] == tbl),
+    ["PROJECT", "SOURCE_SYSTEM"]
+]
