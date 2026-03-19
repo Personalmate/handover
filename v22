@@ -147,14 +147,18 @@ button:hover { background-color: #2a3040 !important; border-color: #4a5068 !impo
 [role="dialog"] [data-testid="baseButton-primary"]:hover {
     background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
 }
-/* Green save/submit button inside forms */
+/* Green save/submit button inside forms and save-btn wrapper */
 [data-testid="stForm"] [data-testid="baseButton-primary"],
-[data-testid="stForm"] [data-testid="stFormSubmitButton"] button {
+[data-testid="stForm"] [data-testid="stFormSubmitButton"] button,
+.save-btn-wrapper [data-testid="baseButton-primary"],
+.save-btn-wrapper button {
     background: linear-gradient(135deg, #238636, #1a7f37) !important; color: #ffffff !important; border: none !important;
     font-weight: 600 !important; font-size: 15px !important; padding: 10px 20px !important;
 }
 [data-testid="stForm"] [data-testid="baseButton-primary"]:hover,
-[data-testid="stForm"] [data-testid="stFormSubmitButton"] button:hover {
+[data-testid="stForm"] [data-testid="stFormSubmitButton"] button:hover,
+.save-btn-wrapper [data-testid="baseButton-primary"]:hover,
+.save-btn-wrapper button:hover {
     background: linear-gradient(135deg, #2ea043, #238636) !important;
 }
 /* Download buttons */
@@ -316,7 +320,12 @@ hr, [data-testid="stMarkdown"] hr {
 .error-msg { color: #f85149 !important; font-size: 13px; margin-top: 4px; padding: 2px 0; }
 .error-msg strong { color: #f85149 !important; }
 
-.field-error { color: #f85149 !important; font-size: 12px; margin-top: -10px; margin-bottom: 8px; display: block; }
+[data-testid="stMarkdown"] span.field-error,
+span.field-error,
+.field-error { color: #ff3333 !important; font-size: 12px; font-weight: 500; margin-top: -10px; margin-bottom: 8px; display: block; }
+[data-testid="stMarkdown"] p .field-error,
+[data-testid="stMarkdown"] .field-error,
+.field-error * { color: #ff3333 !important; }
 
 .main .block-container { padding-top: 1rem; padding-bottom: 1rem; max-width: 100%; }
 
@@ -877,7 +886,9 @@ with tab1:
     comments = st.text_area("Comments *", key="new_comments", height=100)
     show_inline_error(comments, "COMMENTS")
 
+    st.markdown('<div class="save-btn-wrapper">', unsafe_allow_html=True)
     submitted = st.button("Save Entry", type="primary", use_container_width=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
     if submitted:
         form_data = {
