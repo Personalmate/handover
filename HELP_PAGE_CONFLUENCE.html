@@ -1,0 +1,211 @@
+<h1>Project Handover Form &mdash; User Guide</h1>
+
+<hr/>
+
+<h2>What is this app?</h2>
+
+<p>The Project Handover Form is a web application built for the Core Operations Engineering team to record and manage interface handover metadata in a single, centralised location.</p>
+
+<p>Previously, this information was maintained in a shared Excel spreadsheet on SharePoint. While it served its purpose, the Excel approach came with several problems:</p>
+
+<ul>
+  <li><strong>No data quality control</strong> &mdash; anyone could enter data in any format, leading to inconsistent entries, typos, and missing fields</li>
+  <li><strong>No audit trail</strong> &mdash; there was no way to know who changed what and when</li>
+  <li><strong>Duplicate entries</strong> &mdash; without validation, the same interface could be recorded multiple times with slight variations</li>
+  <li><strong>Version conflicts</strong> &mdash; multiple people editing the same file at the same time caused overwrites and lost work</li>
+  <li><strong>No search or filter</strong> &mdash; finding a specific entry meant scrolling through hundreds of rows</li>
+</ul>
+
+<p>This app solves all of those problems. It enforces clean data entry through built-in validation rules, prevents duplicates, tracks every change with a full audit history, and gives you instant search and filtering across all records.</p>
+
+<hr/>
+
+<h2>Who is this for?</h2>
+
+<p>This app is for engineers and team members responsible for handing over data interfaces. If you are submitting a new interface, updating an existing one, or looking up details of a past handover &mdash; this is where you do it.</p>
+
+<hr/>
+
+<h2>How to access the app</h2>
+
+<p>The app is hosted on Streamlit and uses your company login for authentication. Your email address is automatically detected when you log in &mdash; you do not need to enter it manually.</p>
+
+<hr/>
+
+<h2>Tab 1: New Entry</h2>
+
+<p>This is where you submit a new interface handover record. The form is organised into sections to make it easy to fill in.</p>
+
+<p><em>[Insert screenshot: Full New Entry form]</em></p>
+
+<h3>Top buttons</h3>
+
+<table>
+  <thead>
+    <tr><th>Button</th><th>What it does</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Click for Help</strong> (green)</td><td>Opens this help page in a new tab</td></tr>
+    <tr><td><strong>Reset Form</strong> (red)</td><td>Clears all fields and resets the form to blank. Use this if you want to start over</td></tr>
+  </tbody>
+</table>
+
+<h3>Fields &mdash; what to enter</h3>
+
+<table>
+  <thead>
+    <tr><th>Section</th><th>Field</th><th>What to enter</th></tr>
+  </thead>
+  <tbody>
+    <tr><td rowspan="8"><strong>Source &amp; Interface</strong></td><td>Source System</td><td>Name of the source system (e.g., SAP, ORACLE). Auto-uppercased</td></tr>
+    <tr><td>Project</td><td>The project this interface belongs to</td></tr>
+    <tr><td>Interface Name</td><td>A unique name for the interface. Auto-uppercased</td></tr>
+    <tr><td>Time of Landing</td><td>When the data is expected to land</td></tr>
+    <tr><td>Source Pattern</td><td>Select from dropdown: DB, Flat File, API, JSON, CSV, or XML</td></tr>
+    <tr><td>Priority</td><td>Select P1, P2, or P3</td></tr>
+    <tr><td>Mechanism</td><td>Select Push or Pull</td></tr>
+    <tr><td>Load to Data Bronze Products</td><td>Select Y or N</td></tr>
+    <tr><td rowspan="3"><strong>Table Details</strong></td><td>Database Name</td><td>Must start with <strong>DB_CORE_</strong> (e.g., DB_CORE_PRD). Auto-uppercased</td></tr>
+    <tr><td>PSG Table Name</td><td>The PSG table name. Auto-uppercased</td></tr>
+    <tr><td>Stage Table Name</td><td>The stage table name. Auto-uppercased</td></tr>
+    <tr><td rowspan="3"><strong>Contacts</strong></td><td>Source Contact</td><td>Contact person or email for the source system</td></tr>
+    <tr><td>Source Service Now Group</td><td>The ServiceNow group responsible for this interface</td></tr>
+    <tr><td>Engineer Email ID</td><td>Auto-filled with your login email. Cannot be changed</td></tr>
+    <tr><td rowspan="2"><strong>Documentation</strong></td><td>HLD (Confluence URL)</td><td>Link to the HLD document. Must start with <strong>https://colesgroup.atlassian.net/</strong></td></tr>
+    <tr><td>IFM (Confluence URL)</td><td>Link to the IFM document. Must start with <strong>https://colesgroup.atlassian.net/</strong></td></tr>
+    <tr><td rowspan="2"><strong>Security</strong></td><td>Encrypted</td><td>Select YES or NO</td></tr>
+    <tr><td>Expiration Date</td><td>Only appears when Encrypted = YES. If Encrypted = NO, this field is hidden</td></tr>
+    <tr><td><strong>Other</strong></td><td>Comments</td><td>Optional. Add any notes or context. You can leave this blank</td></tr>
+  </tbody>
+</table>
+
+<p>Once all fields are filled in, click the green <strong>Save Entry</strong> button at the bottom. You will see a confirmation notification when the entry is saved.</p>
+
+<h3>Validation rules</h3>
+
+<p>The app checks your data before saving. If anything is wrong, you will see an error message and the entry will not be saved until you fix it.</p>
+
+<p><em>[Insert screenshot: Example validation error messages]</em></p>
+
+<table>
+  <thead>
+    <tr><th>Rule</th><th>What it means</th><th>Error you will see</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>All fields mandatory</td><td>Every field (except Comments) must be filled in</td><td>Mandatory fields left empty: [field names]</td></tr>
+    <tr><td>Dropdowns must be selected</td><td>Cannot leave a dropdown on &ldquo;-- Select --&rdquo;</td><td>Please select a value for: [field names]</td></tr>
+    <tr><td>No multiple spaces</td><td>Only one space between words</td><td>Multiple consecutive spaces found in: [field names]</td></tr>
+    <tr><td>No leading/trailing spaces</td><td>No spaces at the start or end of a value</td><td>Leading or trailing spaces found in: [field names]</td></tr>
+    <tr><td>Confluence URL prefix</td><td>HLD and IFM must start with https://colesgroup.atlassian.net/</td><td>URL must begin with https://colesgroup.atlassian.net/ for: [field names]</td></tr>
+    <tr><td>Database Name prefix</td><td>Must start with DB_CORE_</td><td>Value must begin with DB_CORE_ for: Database Name</td></tr>
+    <tr><td>Expiration Date</td><td>Required when Encrypted = YES</td><td>Mandatory fields left empty: Expiration Date</td></tr>
+    <tr><td>No duplicates</td><td>Same Source System + Interface Name + Database Name + PSG Table Name cannot exist twice</td><td>An entry with this primary key combination already exists.</td></tr>
+    <tr><td>Character limit</td><td>Text fields: 500 characters max. Comments: 2000 max</td><td>Field stops accepting input at the limit</td></tr>
+    <tr><td>Auto uppercase</td><td>Key fields are converted to uppercase automatically</td><td>No error &mdash; happens automatically</td></tr>
+  </tbody>
+</table>
+
+<p>You will also see small inline warnings below individual fields as you type (e.g., if you enter multiple spaces or the wrong URL prefix). These help you fix issues before hitting Save.</p>
+
+<hr/>
+
+<h2>Tab 2: Existing Entries</h2>
+
+<p>This tab lets you browse, search, edit, and delete all existing handover records.</p>
+
+<p><em>[Insert screenshot: Existing Entries tab]</em></p>
+
+<h3>Search and filter</h3>
+
+<p>At the top you have four controls to find entries. You can combine them to narrow your results.</p>
+
+<table>
+  <thead>
+    <tr><th>Control</th><th>What it does</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Search</strong> (text box)</td><td>Free text search across all fields</td></tr>
+    <tr><td><strong>Source System</strong> (dropdown)</td><td>Filter by a specific source system</td></tr>
+    <tr><td><strong>Priority</strong> (dropdown)</td><td>Filter by P1, P2, or P3</td></tr>
+    <tr><td><strong>Database Name</strong> (dropdown)</td><td>Filter by a specific database</td></tr>
+  </tbody>
+</table>
+
+<h3>Summary cards</h3>
+
+<p>Four cards below the filters show Total Records, Source Systems, Databases, and Projects at a glance.</p>
+
+<h3>Export</h3>
+
+<ul>
+  <li><strong>Export Current View</strong> &mdash; downloads a CSV of the filtered entries you are currently viewing</li>
+  <li><strong>Export All Records</strong> &mdash; downloads a CSV of every active entry in the system</li>
+</ul>
+
+<h3>Viewing entries</h3>
+
+<p>Each entry appears as a collapsible card showing <strong>Source System | Interface Name | Database Name | Priority</strong>. Click to expand and see all details.</p>
+
+<h3>Editing an entry</h3>
+
+<ol>
+  <li>Expand the entry and click <strong>Edit</strong></li>
+  <li>A dialog opens with all fields pre-filled</li>
+  <li>Make your changes and click <strong>Update</strong>, or click <strong>Cancel</strong> to discard</li>
+</ol>
+
+<p>The same validation rules apply. The Engineer Email field is locked and cannot be changed.</p>
+
+<h3>Deleting an entry</h3>
+
+<p>Deleting requires 3 clicks to prevent accidents:</p>
+
+<ol>
+  <li>Click <strong>Delete</strong></li>
+  <li>Button changes to <strong>Confirm?</strong> &mdash; click again</li>
+  <li>Button changes to <strong>DELETE!</strong> (red) &mdash; click one final time</li>
+</ol>
+
+<p>Click <strong>Cancel</strong> at any step to abort. Deleted entries are not permanently removed &mdash; they are marked as inactive for audit purposes.</p>
+
+<h3>Pagination</h3>
+
+<p>Entries are shown 20 per page. Use the <strong>First</strong>, <strong>Previous</strong>, <strong>Next</strong>, and <strong>Last</strong> buttons at the bottom to navigate.</p>
+
+<hr/>
+
+<h2>Tips for clean data entry</h2>
+
+<ol>
+  <li><strong>Be consistent with naming</strong> &mdash; key fields are auto-uppercased, but follow your team's agreed conventions</li>
+  <li><strong>Use full Confluence URLs</strong> &mdash; copy the full URL from your browser, not a shortened link</li>
+  <li><strong>One interface per entry</strong> &mdash; do not combine multiple interfaces into one record</li>
+  <li><strong>Use commas for multiple values</strong> &mdash; e.g., multiple source contacts separated by commas</li>
+  <li><strong>Check for existing entries first</strong> &mdash; search in Tab 2 before creating a new entry</li>
+</ol>
+
+<hr/>
+
+<h2>Frequently Asked Questions</h2>
+
+<p><strong>Q: I made a mistake in my entry. Can I fix it?</strong><br/>
+Yes. Go to Existing Entries, find your entry, click Edit, and update the fields.</p>
+
+<p><strong>Q: I accidentally deleted an entry. Is it gone forever?</strong><br/>
+No. Deleted entries are soft-deleted. Contact the Core Ops Engineering team to restore it.</p>
+
+<p><strong>Q: Why can I not change the Engineer Email field?</strong><br/>
+It is automatically set to your login email for accurate tracking.</p>
+
+<p><strong>Q: Why is the Expiration Date field hidden?</strong><br/>
+It only appears when Encrypted is set to YES.</p>
+
+<p><strong>Q: I am getting a &ldquo;primary key already exists&rdquo; error.</strong><br/>
+An entry with the same Source System, Interface Name, Database Name, and PSG Table Name already exists. Search for it in Tab 2 and edit it instead.</p>
+
+<p><strong>Q: Who do I contact if I have issues?</strong><br/>
+Contact <strong>Sandesh Shetty</strong> &mdash; see the bottom right corner of the app.</p>
+
+<hr/>
+
+<p><em>Last updated: March 2026</em></p>
