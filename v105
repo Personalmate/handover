@@ -376,6 +376,8 @@ span.field-error,
 """, unsafe_allow_html=True)
 
 
+HELP_URL = "https://your-help-page-url-here.com"
+
 defaults = {
     "delete_confirm_step": 0, "delete_target": None, "delete_target_pk": None,
     "edit_mode": False, "edit_index": None,
@@ -399,7 +401,6 @@ except Exception:
 is_admin = (str(current_role).upper() == ADMIN_ROLE)
 
 TABLE = "DB_CORE_PRD.PMD.INSIGHTS_CORE_INGESTION"
-HELP_URL = "https://colesgroup.atlassian.net/wiki/spaces/DIOT/pages/5385979116/Insights+Core+Ingestion-+Support+handover+Streamlit+App"
 
 SOURCE_PATTERN_OPTIONS = ["-- Select --", "DB", "Flat File", "API", "JSON", "CSV", "XML"]
 MECHANISM_OPTIONS = ["-- Select --", "Push", "Pull"]
@@ -1461,10 +1462,3 @@ st.markdown("""
     Any issues with the app? Contact <strong style="color: #8b95a5;">Sandesh Shetty</strong>
 </div>
 """, unsafe_allow_html=True)
-
-
-NameError: name 'HELP_URL' is not defined
-Traceback:
-File "/tmp/appRoot/streamlit_app.py", line 384, in <module>
-    "help_url": HELP_URL,
-                ^^^^^^^^
