@@ -1461,3 +1461,10 @@ st.markdown("""
     Any issues with the app? Contact <strong style="color: #8b95a5;">Sandesh Shetty</strong>
 </div>
 """, unsafe_allow_html=True)
+
+
+NameError: name 'HELP_URL' is not defined
+Traceback:
+File "/tmp/appRoot/streamlit_app.py", line 384, in <module>
+    "help_url": HELP_URL,
+                ^^^^^^^^
