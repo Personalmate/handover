@@ -399,7 +399,7 @@ except Exception:
 is_admin = (str(current_role).upper() == ADMIN_ROLE)
 
 TABLE = "DB_CORE_PRD.PMD.INSIGHTS_CORE_INGESTION"
-HELP_URL = "https://your-help-page-url-here.com"
+HELP_URL = "https://colesgroup.atlassian.net/wiki/spaces/DIOT/pages/5385979116/Insights+Core+Ingestion-+Support+handover+Streamlit+App"
 
 SOURCE_PATTERN_OPTIONS = ["-- Select --", "DB", "Flat File", "API", "JSON", "CSV", "XML"]
 MECHANISM_OPTIONS = ["-- Select --", "Push", "Pull"]
