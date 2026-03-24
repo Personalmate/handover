@@ -383,7 +383,6 @@ defaults = {
     "edit_mode": False, "edit_index": None,
     "success_message": None, "success_tab": None,
     "current_page": 0,
-    "help_url": HELP_URL,
 }
 for k, v in defaults.items():
     if k not in st.session_state:
