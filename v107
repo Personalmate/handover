@@ -1,0 +1,45 @@
+Subject: Action Required: New Project Handover Form Replacing SharePoint Excel
+
+Hi Team,
+
+Hope you are well. Sharing an important update about how we manage interface handover details going forward.
+
+What is changing
+
+As you know, we have been using the SharePoint Excel file to log and maintain interface details for project handovers:
+[SharePoint URL]
+
+This file has now been decommissioned and is no longer accessible.
+
+[Screenshot]
+
+Why we moved away from it
+
+The Excel file served us well, but over time it became difficult to maintain data quality. Duplicate entries, inconsistent naming, missing fields, and version conflicts when multiple people edited at the same time were common issues. There was no validation, no audit trail, and no way to track who changed what.
+
+What replaces it
+
+We have built a new Project Handover Form app that addresses all of these issues:
+
+[New App URL]
+
+Here is what is different:
+
+Built in validation ensures clean, consistent data entry (no duplicates, no blank mandatory fields, no messy formatting)
+Your email is automatically captured so no need to type it
+Full edit and delete functionality with audit tracking
+Search, filter, and export capabilities
+All existing data has been migrated
+For a detailed walkthrough on how to use the app, refer to the Confluence page:
+[Confluence URL]
+
+What you need to do
+
+Once the Easter focus period ends, please use the new app for all new entries and any updates to existing records. The SharePoint file will no longer be maintained.
+
+There is a Click for Help button on the app itself that links to the same Confluence page if you need guidance.
+
+If you run into any issues, reach out to me directly.
+
+Thanks,
+Sandesh
